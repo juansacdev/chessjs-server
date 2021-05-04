@@ -24,7 +24,9 @@ const io = new Server(httpServer, {
             'https://chessjs-api.herokuapp.com/',
             'https://chess-js-app-juansacok.vercel.app/',
             'https://chess-js-app-git-main-juansacok.vercel.app/',
-            'https://chess-js-app-jinx4anfu-juansacok.vercel.app/'
+            'https://chess-js-app-jinx4anfu-juansacok.vercel.app/',
+            'https://chess-js-app-n52zgove2-juansacok.vercel.app/',
+            'http://localhost:5500',
         ],
         methods: ['GET', 'POST'],
         allowedHeaders: 'Access-Control-Allow-Origin',
@@ -103,4 +105,4 @@ io.on('connection', socket => {
 })
 
 // Server
-httpServer.listen(process.env.PORT)
+httpServer.listen(process.env.PORT || 5000)
