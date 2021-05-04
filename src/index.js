@@ -19,7 +19,7 @@ const rooms = {}
 const httpServer = createServer()
 const io = new Server(httpServer, {
     cors: {
-        origin: 'https://chess-js.vercel.app/',
+        origin: ['https://chess-js.vercel.app/', 'https://chessjs-api.herokuapp.com/'],
         methods: ['GET', 'POST']
     }
 })
