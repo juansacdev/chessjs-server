@@ -26,7 +26,7 @@ const io = new Server(httpServer, {
             'https://chess-js-app-git-main-juansacok.vercel.app/',
             'https://chess-js-app-jinx4anfu-juansacok.vercel.app/',
             'https://chess-js-app-n52zgove2-juansacok.vercel.app/',
-            'http://localhost:5500',
+            'http://127.0.0.1:5500',
         ],
         methods: ['GET', 'POST'],
         allowedHeaders: 'Access-Control-Allow-Origin',
