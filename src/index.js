@@ -26,7 +26,8 @@ const io = new Server(httpServer, {
             'https://chess-js-app-git-main-juansacok.vercel.app/',
             'https://chess-js-app-jinx4anfu-juansacok.vercel.app/'
         ],
-        methods: ['GET', 'POST']
+        methods: ['GET', 'POST'],
+        allowedHeaders: 'Access-Control-Allow-Origin',
     }
 })
 
@@ -102,4 +103,4 @@ io.on('connection', socket => {
 })
 
 // Server
-httpServer.listen(process.env.PORT || 5000)
+httpServer.listen(process.env.PORT)
