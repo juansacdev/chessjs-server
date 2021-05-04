@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const { createServer } = require('http')
 const { Server, Socket } = require('socket.io');
 
@@ -94,4 +96,4 @@ io.on('connection', socket => {
 })
 
 // Server
-httpServer.listen(5000)
+httpServer.listen(process.env.PORT || 5000)
