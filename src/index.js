@@ -1,7 +1,7 @@
 require("dotenv").config()
 
 const { createServer } = require('http')
-const { Server, Socket } = require('socket.io');
+const { Server } = require('socket.io');
 
 const initialBoard = [
 	['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR'],
@@ -23,7 +23,6 @@ const io = new Server(httpServer, {
         preflightContinue: false,
         optionsSuccessStatus: 204,
         methods: ['GET', 'POST'],
-        // allowedHeaders: 'Access-Control-Allow-Origin',
     }
 })
 
@@ -31,7 +30,7 @@ io.on('connection', socket => {
     console.log('Socket connected');
     socket.emit('connected')
 
-    socket.on('join room', (roomId)=> {
+    socket.on('join room', (roomId) => {
         socket.roomId = roomId
 
         if (!rooms[roomId]) {
@@ -44,12 +43,10 @@ io.on('connection', socket => {
 
         if (rooms[roomId].players.length >= 2) {
             socket.emit('room full')
-            return
         }
 
         rooms[roomId].players.push(socket)
         socket.join(roomId)
-
         socket.emit('init board',  rooms[roomId].board)
 
         if (rooms[roomId].players.length === 2) {
@@ -64,7 +61,6 @@ io.on('connection', socket => {
             }
         }
     })
-
 
     socket.on('move', ([prev, next]) => {
         const { roomId } = socket
